@@ -1,154 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> 
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SFG</title>
 
-  <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
-  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-  <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"><!--Bootstrap link using CDN-->
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Bootstrap 5 CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
   <style>
     .dropdown-item:hover {
-    background-color: #ff6600ca;
-    color: #ffffff;
-    font-size: 18px ; 
-    font-weight:bold;}
+      background-color: #ff6600ca;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
     .slider_section {
-      background-image: url("{{url_for('static', filename='images/SFG-2.jpg')}}");
+      background-image: url("{{ url_for('static', filename='images/SFG-2.jpg') }}");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .section {
+      padding: 40px 0;
+      margin-bottom: 0;
+    }
+
+    /* ABOUT US SECTION FIX */
+    #about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      min-height: auto;
+      padding: 40px 0;
+    }
+
+    #about .container {
+      max-width: 85%;
+    }
+
+    #about h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    #about img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 
-
-
-
 <body>
   <div class="hero_area">
-    <header class="header_section">
-   
-      <div class="header_bottom" style="background-color:rgba(148, 89, 11, 0.865);">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
-              <img src="{{url_for('static',filename='images/logo2.jpg')}}" alt="" style="width: 60px; height:60px;">
-            </a>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class=""> </span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-              <ul class="navbar-nav">
-                  <li class="nav-item active">
-                      <a class="nav-link" href="/" style="font-size:18px;font-weight:bold;">Home <span class="sr-only">(current)</span></a>
-                  </li>
-          
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="groupDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:18px;font-weight:bold;">
-                          GROUP
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="groupDropdown">
-                          <a class="dropdown-item" href="/group.html" style="font-size:18px;font-weight:bold;">Create New Group</a>
-                          <a class="dropdown-item" href="/manageGroup.html" style="font-size:18px;font-weight:bold;">Manage Existing Group</a>
-                      </div>
-                  </li>
-          
-                  <li class="nav-item">
-                      <a class="nav-link" href="/manageGroup.html" style="font-size:18px;font-weight:bold;">Login</a>
-                  </li>
-                  
-                  <form class="form-inline">
-                      <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                          <i class="fa fa-search" aria-hidden="true"></i>
-                      </button>
-                  </form>
-              </ul>
-          
-            
-          </div>
-          
-          </nav>
-        </div>
-      </div>
-    </header>
-    
-    <section class="slider_section" >
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    {% include 'header.html' %} 
+    <section class="slider_section">
+      <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="container ">
+            <div class="container">
               <div class="row">
                 <div class="col-md-10 mx-auto">
                   <div class="detail-box">
-                    <h1 >
-                    SELFHELP SQUAD
-                    </h1>
+                    <h1>SELFHELP SQUAD</h1>
                     <div class="btn-box">
-                      <a href="/contact.html" class="btn1">
-                        Contact Us
-                      </a>
-                      <a href="/about.html" class="btn2">
-                        About Us
-                      </a>
+                      <a href="#contact" class="btn1">Contact Us</a>
+                      <a href="#about" class="btn2">About Us</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-         
-
+        </div>
     </section>
-    <!-- end slider section -->
   </div>
 
-
-
-
-
-  <!-- footer section -->
-  <footer class="footer_section">
+  <!-- ABOUT US SECTION -->
+  <section id="about" class="section bg-light py-5">
     <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span>Women Self-Help Group Management System. All Rights Reserved.
-      </p>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="mb-4 text-uppercase text-primary">About Us</h2>
+          <p class="lead text-dark">
+            The <strong>Women Self-Help Group Management System</strong> is designed to empower women by fostering
+            financial independence through **collaborative savings and loan management**.
+          </p>
+          <p class="text-muted">
+            We provide a **secure and transparent** way for women to manage their group funds, monitor savings, and
+            facilitate easy loan distribution. Our mission is to **enhance financial literacy** and empower women
+            to create a **stronger economic foundation** for themselves and their communities.
+          </p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="{{ url_for('static', filename='images/about_us.jpg') }}" alt="Empowered Women" class="img-fluid rounded shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION -->
+  <section id="contact" class="section py-5" style="background-color: rgba(148, 89, 11, 0.865); color: white;">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h2 class="mb-4 text-uppercase">Contact Us</h2>
+          <p class="lead">Reach out to us for any queries or support. We're here to help!</p>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6 text-center">
+          <i class="fa fa-phone fa-3x"></i>
+          <h4 class="mt-2">Phone</h4>
+          <p>+91 5468956623</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <i class="fa fa-map-marker fa-3x"></i>
+          <h4 class="mt-2">Address</h4>
+          <p>123 Women Empowerment St, Bangalore, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
+  <!-- FOOTER -->
+  <footer class="footer_section">
+    <div class="container text-center">
+      <p>&copy; <span id="displayYear"></span> Women Self-Help Group Management System. All Rights Reserved.</p>
     </div>
   </footer>
-  <!-- footer section -->
 
-  <!-- jQery -->
+  <!-- jQuery -->
   <script src="{{url_for('static',filename='js/jquery-3.4.1.min.js')}}"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <!-- bootstrap js -->
+  <!-- Bootstrap JS -->
   <script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Smooth scrolling fix for older browsers -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
-  <!--  OwlCarousel 2 - Filter -->
-  <script src="https://huynhhuynh.github.io/owlcarousel2-filter/dist/owlcarousel2-filter.min.js"></script>
-  <!-- custom js -->
-  <script src="{{url_for('static',filename='js/custom.js')}}"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-  <!-- End Google Map -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script><!--Link to include bootstrap using CDN-->
+
 </body>
 
 </html>
